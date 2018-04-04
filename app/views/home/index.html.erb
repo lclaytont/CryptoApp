@@ -1,0 +1,11 @@
+<h1>Hello World</h1>
+<p>This is my first rails app, but not really</p>
+<hr>
+
+<% @coins.each do |c| %>
+  <% if @my_coins.include? c['symbol'] %>
+    <%= c['name'] %>: $<%= c['price_usd'] %> <br />
+    Rank: <%= c['rank'] %> <br />
+    <hr>
+  <% end %>
+<% end %>

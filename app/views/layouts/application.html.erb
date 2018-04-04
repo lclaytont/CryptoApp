@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CryptoApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Crypto Currency Portfolio</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "home/navbar" %>
+    
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
