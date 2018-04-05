@@ -7,7 +7,9 @@
 <br>
 <br>
 
-<% if @symbol %>
+<% if @error %>
+  <strong><%= @error %></strong>
+<% elsif @symbol %>
   <% @lookup_coin.each do |lc| %>
     <% if lc['symbol'] == @symbol %>
       Name: <%= lc['name'] %> <br>

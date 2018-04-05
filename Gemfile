@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # Add Bootstrap sass
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+# Add Devise for user auth
+gem 'devise', '~> 4.4', '>= 4.4.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

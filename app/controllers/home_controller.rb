@@ -15,14 +15,14 @@ class HomeController < ApplicationController
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @lookup_coin = JSON.parse(@response)
-
+    @error = false
     @symbol = params[:sym]
     if @symbol
       @symbol.upcase!
     end
 
     if @symbol == ""
-      @symbol = "Hey, you forgot to enter a Currency"
+      @error = "Hey, you forgot to enter a Currency"
     end
 
   end
