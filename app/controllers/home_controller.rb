@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    require 'net/http'
     @url = 'https://api.coinmarketcap.com/v1/ticker/'
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
@@ -11,6 +12,7 @@ class HomeController < ApplicationController
   end
 
   def lookup
+    require 'net/http'
     @url = 'https://api.coinmarketcap.com/v1/ticker/'
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
