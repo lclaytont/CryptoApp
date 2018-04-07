@@ -6,12 +6,21 @@ class CryptosController < ApplicationController
   # GET /cryptos
   # GET /cryptos.json
   def index
+    @profit_loss = 0
     @cryptos = Crypto.all
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @lookup_cryptos = JSON.parse(@response)
   end
 
   # GET /cryptos/1
   # GET /cryptos/1.json
   def show
+    @url = 'https://api.coinmarketcap.com/v1/ticker/'
+    @uri = URI(@url)
+    @response = Net::HTTP.get(@uri)
+    @lookup_cryptos = JSON.parse(@response)
   end
 
   # GET /cryptos/new
@@ -27,6 +36,7 @@ class CryptosController < ApplicationController
   # POST /cryptos.json
   def create
     @crypto = Crypto.new(crypto_params)
+    @crypto.symbol.upcase!
 
     respond_to do |format|
       if @crypto.save

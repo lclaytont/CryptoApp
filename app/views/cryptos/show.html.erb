@@ -1,22 +1,41 @@
-<p>
-  <strong>Symbol:</strong>
-  <%= @crypto.symbol %>
-</p>
+<% @lookup_cryptos.each do |c| %>
+  <% if @crypto.symbol == c['symbol'] %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><strong>Name:</strong> <%= c['name'] %></h3>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Symbol:</strong>
+        <%= @crypto.symbol %>
+      </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @crypto.user_id %>
-</p>
+      <p>
+        <strong>Rank:</strong>
+        <%= c['rank'] %>
+      </p>
 
-<p>
-  <strong>Cost per:</strong>
-  <%= @crypto.cost_per %>
-</p>
+      <p>
+        <strong>Price USD:</strong>
+        <%= c['price_usd'] %>
+      </p>
 
-<p>
-  <strong>Amount owned:</strong>
-  <%= @crypto.amount_owned %>
-</p>
+      <p>
+        <strong>Cost per:</strong>
+        <%= @crypto.cost_per %>
+      </p>
 
-<%= link_to 'Edit', edit_crypto_path(@crypto) %> |
-<%= link_to 'Back', cryptos_path %>
+      <p>
+        <strong>Amount owned:</strong>
+        <%= @crypto.amount_owned %>
+      </p>
+    </div>
+    <div class="panel-footer">
+      <%= link_to 'Edit', edit_crypto_path(@crypto), class: "btn btn-warning" %>
+      <%= link_to 'Delete Crypto', @crypto, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <%= link_to 'Back', cryptos_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
+  <% end %>
+<% end %>
